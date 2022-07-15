@@ -13,9 +13,7 @@ function Create() {
       setContacto({ ...contact, [inputName]: inputValue})}
   
     const handleSubmit = (e) => {e.preventDefault()
-    if (!contact.nombre) {console.log("Necesario Campo Nombre")}
     setIsLoading(true)
-     //(Creamos la Peticion FETCH a nuestra Base de Datos tipo POST(Vamos a Parar al Controlador postContactos))
     fetch('http://localhost:5000/api/v1/contactos', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
