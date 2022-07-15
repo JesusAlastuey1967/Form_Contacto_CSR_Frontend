@@ -4,22 +4,22 @@ import Head from 'next/head'
 const InicioEstado = {nombre:'', correo:'', telefono:'', comentarios:''}
 
 function Create() {
-    const [contacto, setContacto] = useState(InicioEstado)
+    const [contact, setContacto] = useState(InicioEstado)
     const [isLoading, setIsLoading] = useState(false)
     
     const handleChange = (e) => {
-      const Valor = e.target.value
-      const Nombre = e.target.name
-      setContacto({ ...contacto, [Nombre]: Valor})}
+      const inputValue = e.target.value
+      const inputName = e.target.name
+      setContacto({ ...contact, [inputName]: inputValue})}
   
     const handleSubmit = (e) => {e.preventDefault()
-    if (!contacto.nombre) {console.log("Necesario Campo Nombre")}
+    if (!contact.nombre) {console.log("Necesario Campo Nombre")}
     setIsLoading(true)
      //(Creamos la Peticion FETCH a nuestra Base de Datos tipo POST(Vamos a Parar al Controlador postContactos))
     fetch('http://localhost:5000/api/v1/contactos', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({...contacto})
+      body: JSON.stringify({...contact})
     })
     .then((res) => res.json())
     .then(data => {if(data.ok) {console.log("Contacto creado con EXITO!")
@@ -37,7 +37,8 @@ function Create() {
         <fieldset>
         <h1>Invitación</h1> <hr></hr> <br></br>
         <p>Si te interesan estas herramientas, te invito a contactarme, te respondere a la mayor brevedad, </p><br></br> 
-        <input onChange={handleChange} value={contacto.nombre} class="controls" type="text" name="nombre" id="nombre"  placeholder="Nombre y Apellidos:" required/><br></br>
+        <input onChange={handleChange} value={contact.nombre} class="controls" type="text" name="nombre" id="nombre"  placeholder="Nombre y Apellidos:" required/><br></br>
+        
         {/* <input onChange={handleChange} value={contacto.correo} class="controls" type="email" name="correo" id="correo" placeholder="E-mail:" required/><br></br>
         <input onChange={handleChange} value={contacto.telefono} class="controls" type="text" name="telefono" id="telefono" placeholder="Telefono:"/><br></br>
         <textarea onChange={handleChange} value={contacto.comentarios} class="controls" name="comentarios" id="comentarios" rows="4" cols="30" placeholder="Mensaje:"/><br></br><br></br>
