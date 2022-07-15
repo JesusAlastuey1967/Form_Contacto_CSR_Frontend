@@ -37,10 +37,10 @@ function Create() {
         <input onChange={handleChange} value={contacto.correo} class="controls" type="email" name="correo" id="correo" placeholder="E-mail:" required/><br></br>
         <input onChange={handleChange} value={contacto.telefono} class="controls" type="text" name="telefono" id="telefono" placeholder="Telefono:"/><br></br>
         <textarea onChange={handleChange} value={contacto.comentarios} class="controls" name="comentarios" id="comentarios" rows="4" cols="30" placeholder="Mensaje:"/><br></br><br></br>
-        <button onSubmit={handleSubmit} class="controls boton"> {isLoading ? 'Enviando': 'Enviar'}</button><br></br><br></br>
+        <button onSubmit={handleSubmit} class="controls boton">Enviar</button><br></br><br></br>
         </fieldset>
         </form>
-      </div>
+     
       <style jsx global>
         {`
         .App {
@@ -89,6 +89,7 @@ function Create() {
           }
         `}
       </style>
+      </div>
     </>
   )
 }
