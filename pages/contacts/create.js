@@ -1,29 +1,27 @@
 import {useState} from 'react'
 import Head from 'next/head'
 
-const InicioEstado = {nombre:'', correo:'', telefono:'', comentarios:''}
+const initialState = {nombre:'', correo:'', telefono:'', comentarios:''}
 
 function Create() {
-    const [contact, setContacto] = useState(InicioEstado)
-    const [isLoading, setIsLoading] = useState(false)
+    const [contacto, setContacto] = useState(initialState)
     
     const handleChange = (e) => {
       const inputValue = e.target.value
       const inputName = e.target.name
-      setContacto({ ...contact, [inputName]: inputValue})}
+      setContacto({...contacto, [inputName]: inputValue})}
   
     const handleSubmit = (e) => {e.preventDefault()
-    setIsLoading(true)
     fetch('http://localhost:5000/api/v1/contactos', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({...contact})
+      body: JSON.stringify(contacto),
     })
     .then((res) => res.json())
-    .then(data => {if(data.ok) {console.log("Contacto creado con EXITO!")
-     setContacto(InicioEstado)
-     setIsLoading(false)}})
-    .catch((err) => console.log(err))}
+    .then((data) => {setContacto(initialState)
+     console.log("Contacto creado con EXITO!")})
+    .catch((err) => {console.log({err})
+    })}
 
   return (
     <>
@@ -35,7 +33,7 @@ function Create() {
         <fieldset>
         <h1>Invitación</h1> <hr></hr> <br></br>
         <p>Si te interesan estas herramientas, te invito a contactarme, te respondere a la mayor brevedad, </p><br></br> 
-        <input onChange={handleChange} value={contact.nombre} class="controls" type="text" name="nombre" id="nombre"  placeholder="Nombre y Apellidos:" required/><br></br>
+        <input onChange={handleChange} value={contacto.nombre} class="controls" type="text" name="nombre" id="nombre"  placeholder="Nombre y Apellidos:" required/><br></br>
         
         {/* <input onChange={handleChange} value={contacto.correo} class="controls" type="email" name="correo" id="correo" placeholder="E-mail:" required/><br></br>
         <input onChange={handleChange} value={contacto.telefono} class="controls" type="text" name="telefono" id="telefono" placeholder="Telefono:"/><br></br>
