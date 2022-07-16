@@ -5,6 +5,7 @@ const initialState = {nombre:'', correo:'', telefono:'', comentarios:''}
 
 function Create() {
     const [contacto, setContacto] = useState(initialState)
+    const [isLoading, setIsLoading] = useState(false)
     
     const handleChange = (e) => {
       const inputValue = e.target.value
@@ -12,13 +13,16 @@ function Create() {
       setContacto({...contacto, [inputName]: inputValue})}
   
     const handleSubmit = (e) => {e.preventDefault()
+    setIsLoading(true)
     fetch('http://localhost:5000/api/v1/contactos', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(...contacto),
     })
     .then((res) => res.json())
-    .then((data) => {setContacto(initialState)})
+    .then((data) => {if(data.ok) {console.log("Contacto creado con EXITO!")
+    setContacto(initialState)
+    setIsLoading(false)}})
     .catch((err) => {console.log({err})
     })}
 
@@ -36,7 +40,7 @@ function Create() {
         <input onChange={handleChange} value={contacto.correo}  type="email" name="correo" id="correo" placeholder="E-mail:" required/><br></br>
         <input onChange={handleChange} value={contacto.telefono} type="text" name="telefono" id="telefono" placeholder="Telefono:"/><br></br>
         <textarea onChange={handleChange} value={contacto.comentarios}  name="comentarios" id="comentarios" rows="4" cols="30" placeholder="Mensaje:"/><br></br><br></br>
-        <button onSubmit={handleSubmit}>Enviar</button><br></br><br></br>
+        <button onSubmit={handleSubmit}>{isLoading ? 'Enviando': 'Enviar'}</button><br></br><br></br>
         </fieldset>
         </form>
       </div>
