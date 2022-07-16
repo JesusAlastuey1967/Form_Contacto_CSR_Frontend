@@ -11,16 +11,20 @@ function Create() {
       const inputValue = e.target.value
       const inputName = e.target.name
       setContacto({...contacto, [inputName]: inputValue})}
+
+      console.log(contacto)
   
-    const handleSubmit = (e) => {e.preventDefault()
+    const handleSubmit = (e) => {
+    e.preventDefault()
+    if (!contacto.nombre) {console.log("Necesario Campo Nombre")}
     setIsLoading(true)
     fetch('http://localhost:5000/api/v1/contactos', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(...contacto),
+      body: JSON.stringify(contacto),
     })
     .then((res) => res.json())
-    .then((data) => {if(data.ok) {console.log("Contacto creado con EXITO!")
+    .then(data => {if(data.ok) {console.log("Contacto creado con EXITO!")
     setContacto(initialState)
     setIsLoading(false)}})
     .catch((err) => {console.log({err})
@@ -32,7 +36,7 @@ function Create() {
       <link href="https://fonts.googleapis.com/css2?family=Antic&display=swap" rel="stylesheet"/>
       </Head>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}> 
         <fieldset>
         <h1>Invitación</h1> <hr></hr> <br></br>
         <p>Si te interesan estas herramientas, te invito a contactarme, te respondere a la mayor brevedad, </p><br></br>
@@ -40,7 +44,7 @@ function Create() {
         <input onChange={handleChange} value={contacto.correo}  type="email" name="correo" id="correo" placeholder="E-mail:" required/><br></br>
         <input onChange={handleChange} value={contacto.telefono} type="text" name="telefono" id="telefono" placeholder="Telefono:"/><br></br>
         <textarea onChange={handleChange} value={contacto.comentarios}  name="comentarios" id="comentarios" rows="4" cols="30" placeholder="Mensaje:"/><br></br><br></br>
-        <button onSubmit={handleSubmit}>{isLoading ? 'Enviando': 'Enviar'}</button><br></br><br></br>
+        <button>{isLoading ? 'Enviando': 'Enviar'}</button><br></br><br></br>
         </fieldset>
         </form>
       </div>
