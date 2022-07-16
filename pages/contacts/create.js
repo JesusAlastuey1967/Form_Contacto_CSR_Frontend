@@ -16,7 +16,7 @@ function Create() {
   
     const handleSubmit = (e) => {
     e.preventDefault()
-    if (!contacto.nombre) {console.log("Necesario Campo Nombre")}
+    if (!contacto.nombre) {console.log("Necesario Poner Nombre")}
     setIsLoading(true)
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/contactos`, {
       method: 'POST',
