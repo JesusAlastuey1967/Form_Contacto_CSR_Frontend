@@ -18,8 +18,7 @@ function Create() {
       body: JSON.stringify(...contacto),
     })
     .then((res) => res.json())
-    .then((data) => {setContacto(initialState)
-     console.log("Contacto creado con EXITO!")})
+    .then((data) => {setContacto(initialState)})
     .catch((err) => {console.log({err})
     })}
 
@@ -28,7 +27,7 @@ function Create() {
       <Head>
       <link href="https://fonts.googleapis.com/css2?family=Antic&display=swap" rel="stylesheet"/>
       </Head>
-      <div>
+   s   <div>
         <form>
         
         <h1>Invitación</h1> <hr></hr> <br></br>
