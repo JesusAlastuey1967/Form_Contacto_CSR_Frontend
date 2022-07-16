@@ -36,7 +36,7 @@ function Create() {
         <input onChange={handleChange} value={contacto.nombre} type="text" name="nombre" id="nombre"  placeholder="Nombre y Apellidos:" required/><br></br>
         <input onChange={handleChange} value={contacto.correo}  type="email" name="correo" id="correo" placeholder="E-mail:" required/><br></br>
         <input onChange={handleChange} value={contacto.telefono} type="text" name="telefono" id="telefono" placeholder="Telefono:"/><br></br>
-        <textarea onChange={handleChange} value={contacto.comentarios} class="controls" name="comentarios" id="comentarios" rows="4" cols="30" placeholder="Mensaje:"/><br></br><br></br>
+        <textarea onChange={handleChange} value={contacto.comentarios} class="control" name="comentarios" id="comentarios" rows="4" cols="30" placeholder="Mensaje:"/><br></br><br></br>
         <button onSubmit={handleSubmit}>Enviar</button><br></br><br></br>
         
         </form>
@@ -59,7 +59,7 @@ function Create() {
             text-align: center;
           }
           
-          .controls {
+          .control {
             width: 90%;
             background: white;
             padding: 8px;
