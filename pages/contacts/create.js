@@ -18,7 +18,7 @@ function Create() {
     e.preventDefault()
     if (!contacto.nombre) {console.log("Necesario Campo Nombre")}
     setIsLoading(true)
-    fetch('http://localhost:5000/api/v1/contactos', {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/contactos`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(contacto),
