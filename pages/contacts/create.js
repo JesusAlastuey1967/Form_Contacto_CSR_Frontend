@@ -27,16 +27,17 @@ function Create() {
       <Head>
       <link href="https://fonts.googleapis.com/css2?family=Antic&display=swap" rel="stylesheet"/>
       </Head>
-   s   <div>
+      <div>
         <form>
         
         <h1>Invitación</h1> <hr></hr> <br></br>
-        <p>Si te interesan estas herramientas, te invito a contactarme, te respondere a la mayor brevedad, </p><br></br> 
-        <input onChange={handleChange} value={contacto.nombre} class="controls" type="text" name="nombre" id="nombre"  placeholder="Nombre y Apellidos:" required/><br></br>
+        <p>Si te interesan estas herramientas, te invito a contactarme, te respondere a la mayor brevedad, </p><br></br>
+        <input onChange={handleChange} value={contacto.nombre} type="text" name="nombre"/><br></br>
+        {/* <input onChange={handleChange} value={contacto.nombre} class="controls" type="text" name="nombre" id="nombre"  placeholder="Nombre y Apellidos:" required/><br></br>
         <input onChange={handleChange} value={contacto.correo} class="controls" type="email" name="correo" id="correo" placeholder="E-mail:" required/><br></br>
         <input onChange={handleChange} value={contacto.telefono} class="controls" type="text" name="telefono" id="telefono" placeholder="Telefono:"/><br></br>
         <textarea onChange={handleChange} value={contacto.comentarios} class="controls" name="comentarios" id="comentarios" rows="4" cols="30" placeholder="Mensaje:"/><br></br><br></br>
-        <button onSubmit={handleSubmit} class="controls boton">Enviar</button><br></br><br></br>
+        <button onSubmit={handleSubmit} class="controls boton">Enviar</button><br></br><br></br> */}
         
         </form>
       </div>
