@@ -29,24 +29,22 @@ function Create() {
       </Head>
       <div>
         <form>
-        
+        <fieldset>
         <h1>Invitación</h1> <hr></hr> <br></br>
         <p>Si te interesan estas herramientas, te invito a contactarme, te respondere a la mayor brevedad, </p><br></br>
         <input onChange={handleChange} value={contacto.nombre} type="text" name="nombre" id="nombre"  placeholder="Nombre y Apellidos:" required/><br></br>
-        <input onChange={handleChange} value={contacto.nombre} type="text" name="nombre" id="nombre"  placeholder="Nombre y Apellidos:" required/><br></br>
         <input onChange={handleChange} value={contacto.correo}  type="email" name="correo" id="correo" placeholder="E-mail:" required/><br></br>
         <input onChange={handleChange} value={contacto.telefono} type="text" name="telefono" id="telefono" placeholder="Telefono:"/><br></br>
-        <textarea onChange={handleChange} value={contacto.comentarios} class="control" name="comentarios" id="comentarios" rows="4" cols="30" placeholder="Mensaje:"/><br></br><br></br>
+        <textarea onChange={handleChange} value={contacto.comentarios}  name="comentarios" id="comentarios" rows="4" cols="30" placeholder="Mensaje:"/><br></br><br></br>
         <button onSubmit={handleSubmit}>Enviar</button><br></br><br></br>
-        
+        </fieldset>
         </form>
       </div>
       <style jsx global>
         {`
-        .App {
-            text-align: center;
+          h1{
+            letter-spacing: 2px;
           }
-          
           form {
             height: 625px;
             width: 400px;
@@ -58,8 +56,7 @@ function Create() {
             font-family: 'Antic';
             text-align: center;
           }
-          
-          .control {
+          input, textarea, button {
             width: 90%;
             background: white;
             padding: 8px;
@@ -69,23 +66,12 @@ function Create() {
             border-color: white;
             color: black;
           }
-          
-          .placeholder {
-            color: black;
-          }
-          
-          .boton {
+          button {
             width: 60%;
           }
-          
-          .boton:hover {
-            
+          button:hover {
             background-color: #999;
             border-color: black; 
-          }
-          
-          h1{
-            letter-spacing: 2px;
           }
         `}
       </style>
