@@ -1,0 +1,27 @@
+
+#menu a {
+    font-size: 20px;
+    margin: 2px 100px;
+    padding: 5px 30px;
+    color: beige;
+    border-color: 2px black;
+    background-color: rgba(23,162,184,255);
+    border-radius: 2px;
+    text-decoration: none;
+    font-family: Antic;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 2px 100px;
+    padding: 5px 30px;
+    color:rgba(23,162,184,255);;
+    border-color: 2px black;
+    background-color: beige;
+    border-radius: 2px;
+    text-align: center;
+    
+    font-family: Antic;
+    letter-spacing: 2px;
+    width: 200px;
+}

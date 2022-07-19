@@ -1,0 +1,38 @@
+h1{
+  letter-spacing: 2px;
+  font-size: 40px;
+}
+p{
+  font-size: 18px;
+}
+
+form {
+  height: 600px;
+  width: 400px;
+  background-color: rgba(23,162,184,255);
+  margin: 35px auto;
+  padding: 20px 10px;
+  color: white;
+  font-size: 14px;
+  font-family: 'Antic';
+  text-align: center;
+}
+input, textarea, button {
+  width: 90%;
+  background: white;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 5px;
+  font-family: Antic;
+  border-color: white;
+  color: black;
+}
+button {
+  width: 60%;
+}
+button:hover {
+  background-color: #999;
+  border-color: black;}
+
+
+  
